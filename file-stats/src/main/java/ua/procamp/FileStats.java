@@ -114,7 +114,7 @@ public class FileStats {
         int count =0;
         char [] c =file.toCharArray();
         for (char temp: c) {
-            if (temp==ch){
+            if (temp==ch&& ch != ' '){
                 count++;
             }
         }
