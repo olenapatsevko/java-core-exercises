@@ -1,18 +1,16 @@
 package ua.procamp;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Objects;
-import java.util.Scanner;
+
 
 /**
  * {@link FileStats} provides an API that allow to get character statistic based on text file. All whitespace characters
  * are ignored.
  */
 public class FileStats {
-    static final int ASCII_SIZE = 256;
    private  File file ;
    FileStats (String filename)  {
 
@@ -33,7 +31,7 @@ public class FileStats {
      * @param fileName input text file name
      * @return new FileStats object created from text file
      */
-    public static FileStats from(String fileName) {StringBuilder s = new StringBuilder();
+    public static FileStats from(String fileName) {
           return new FileStats(fileName);
     }
 
@@ -58,7 +56,7 @@ public class FileStats {
             char result = ' ';
             int maxCount = 0;
             String string = readWholeFile();
-            for (char i = 0 ;i<256;i++){
+            for (char i = 30 ;i<256;i++){
                 if (maxCount<charCount(string, i)){
                     maxCount = charCount(string,i);
                     result = i;
@@ -86,20 +84,7 @@ public class FileStats {
      * @return string that holds whole file content
      */
     public String readWholeFile() {
-
-        StringBuilder s = new StringBuilder();
-        try {
-
-            Scanner scanner = new Scanner(this.file);
-            while (scanner.hasNextLine()) {
-
-                s.append(scanner.nextLine()+"\n");
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            return "";
-        }
-        return s.length()>0?s.toString().substring(0,s.toString().length()-1):"";
+        return FileHelper.fileReader(this.file);
 
     }
     /**
