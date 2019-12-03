@@ -18,6 +18,7 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 
@@ -30,6 +31,8 @@
         </dependency>
     </dependencies>
 >>>>>>> Stashed changes
+=======
+>>>>>>> 5laba
 
 
 </project>
