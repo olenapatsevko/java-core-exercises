@@ -13,22 +13,6 @@ import static org.junit.Assert.assertEquals;
 
 public class LaptopTest extends TestCase {
 
-
-    @Test
-    public void testToString(){
-        Class <Laptop> laptop0Class = Laptop.class;
-        out.println(laptop0Class.getTypeName());
-        String temp="" ;
-
-        Method method[] =  laptop0Class.getDeclaredMethods();
-        for (int i =0 ; i<method.length; i++){
-            temp = temp + (((method[i].getAnnotations().length)>0)?"Annonations used:"+ Arrays.toString( method[i].getAnnotations()):"No annotations found");
-        }
-
-        assertEquals("No annotations foundNo annotations foundNo annotations foundNo annotations foundAnnonations used:[@computer.Call()]No annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations foundNo annotations found", temp);
-
-    }
-
     @Test
     public void testToString1() {
         Laptop laptop = new Laptop();

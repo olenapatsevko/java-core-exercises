@@ -29,6 +29,8 @@
         <module>exam-questions</module>
         <module>reflection-example</module>
         <module>utilits</module>
+        <module>utilits</module>
+
     </modules>
 
     <dependencies>
