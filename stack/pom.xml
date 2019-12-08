@@ -19,7 +19,6 @@
         </dependency>
     </dependencies>
 
-
     <dependencies>
         <dependency>
             <groupId>ua.procamp</groupId>
@@ -34,7 +33,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
->>>>>>> Stashed changes
+
     <dependencies>
         <dependency>
             <groupId>ua.procamp</groupId>
