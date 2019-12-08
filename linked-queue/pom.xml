@@ -10,6 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>linked-queue</artifactId>
+    <packaging>pom</packaging>
     <dependencies>
         <dependency>
             <groupId>ua.procamp</groupId>

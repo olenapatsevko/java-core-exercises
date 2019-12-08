@@ -14,7 +14,7 @@ public abstract class Computer  {
     private int computerMemory;
 
     public Computer(){
-      //  System.out.println("computer.Computer Constructor");;
+
     }
 
     @Override

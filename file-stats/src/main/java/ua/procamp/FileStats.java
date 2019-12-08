@@ -43,7 +43,7 @@ public class FileStats {
      */
     public int getCharCount(char character) {
 
-        return charCount(readWholeFile(),character); //throw new UnsupportedOperationException("It's your job to make it work!"); //todo
+        return charCount(readWholeFile(),character);
     }
 
     /**

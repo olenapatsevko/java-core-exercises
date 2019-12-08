@@ -33,14 +33,8 @@ public class AccountAnalytics {
      * @return account with max balance wrapped with optional
      */
     public Optional<Account> findRichestPerson() {
-        Optional<Account> account = accounts.stream().max(new Comparator<Account>() {
-            @Override
-            public int compare(Account o1, Account o2) {
-                return o1.getBalance().compareTo(o2.getBalance());
-            }
-        });
+        return accounts.stream().max(Comparator.comparing(Account::getBalance));
 
-        return account;
     }
 
     /**
@@ -76,8 +70,8 @@ public class AccountAnalytics {
      */
     public Map<String, List<Account>> groupAccountsByEmailDomain() {
         Map<String, List<Account>> listMap = new HashMap<>();
-        List<String> domains = accounts.stream().map(s -> s.getEmail().substring(s.getEmail().indexOf("@") + 1)).distinct().collect(Collectors.toList());
-        domains.forEach(s -> listMap.put(s, accounts.stream().filter(acc -> acc.getEmail().substring(acc.getEmail().indexOf("@") + 1).equals(s)).collect(Collectors.toList())));
+        List<String> domains = accounts.stream().map(s -> s.getEmail().substring(s.getEmail().indexOf('@') + 1)).distinct().collect(Collectors.toList());
+        domains.forEach(s -> listMap.put(s, accounts.stream().filter(acc -> acc.getEmail().substring(acc.getEmail().indexOf('@') + 1).equals(s)).collect(Collectors.toList())));
         return listMap;
     }
 
@@ -119,7 +113,7 @@ public class AccountAnalytics {
     }
 
     public static String substringAnEmail(String email){
-        return email.substring(email.indexOf("@")+1);
+        return email.substring(email.indexOf('@')+1);
     }
 
     /**
@@ -140,7 +134,7 @@ public class AccountAnalytics {
      * @return map of accounts by its ids
      */
     public Map<Long, Account> collectAccountsById() {
-        return accounts.stream().collect(Collectors.toMap(s -> s.getId(), s -> s));
+        return accounts.stream().collect(Collectors.toMap(Account::getId, s -> s));
 
 
     }
@@ -153,7 +147,7 @@ public class AccountAnalytics {
      * @return map of account by its ids the were created in a particular year
      */
     public Map<String, BigDecimal> collectBalancesByIdForAccountsCreatedOn(int year) {
-        return accounts.stream().filter(s -> s.getCreationDate().getYear() == year).collect(Collectors.toMap(e -> e.getEmail(), b -> b.getBalance()));
+        return accounts.stream().filter(s -> s.getCreationDate().getYear() == year).collect(Collectors.toMap(Account::getEmail, Account::getBalance));
     }
 
     /**
@@ -164,10 +158,8 @@ public class AccountAnalytics {
      */
     public Map<String, Set<String>> groupFirstNamesByLastNames() {
         Map<String, Set<String>> stringSetMap = new HashMap<>();
-        accounts.stream().forEach(e -> {
-            stringSetMap.put(e.getLastName(), accounts.stream().filter(account -> account.getLastName().equals(e.getLastName()))
-                    .map(Account::getFirstName).collect(Collectors.toSet()));
-        });
+        accounts.stream().forEach(e -> stringSetMap.put(e.getLastName(), accounts.stream().filter(account -> account.getLastName().equals(e.getLastName()))
+                    .map(Account::getFirstName).collect(Collectors.toSet())));
         return stringSetMap;
     }
 

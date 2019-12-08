@@ -14,10 +14,13 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.IntStream.range;
 
 public interface Accounts {
+
+     Random random = new Random();
+
     static Account getAccount(){
         Fairy fairy = Fairy.create();
         Person person = fairy.person();
-        Random random = new Random();
+
 
 
         Account fakeAccount = new Account();

@@ -1,9 +1,8 @@
 package computer;
 
 import lombok.*;
-import lombok.experimental.Tolerate;
-
-import java.lang.annotation.Target;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
@@ -17,7 +16,7 @@ public class Laptop extends Computer implements Machine{
 
     public Laptop(){
             super();
-        //    System.out.println("computer.Laptop Constructor");;
+
     }
 
     @Override
@@ -30,14 +29,13 @@ public class Laptop extends Computer implements Machine{
 
     @Call
     public void increment(){
-        System.out.println("invoking a method with my annotation" +
-                "");
+        Logger.getAnonymousLogger().log(Level.FINE,"\"invoking a method with my annotation\"");
+
         this.setScreen(this.getScreen()+1);
     }
 
     public String getPackage(){
-        String pack = Laptop.class.getCanonicalName();
-        return pack;
+        return Laptop.class.getCanonicalName();
     }
 
 

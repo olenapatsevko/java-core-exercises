@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class FileHelper {
 
+  private FileHelper(){}
+
   public static String fileReader (File file ){
     StringBuilder s = new StringBuilder();
     try {
