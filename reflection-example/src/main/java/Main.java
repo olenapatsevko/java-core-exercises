@@ -13,6 +13,7 @@ import static java.lang.System.setOut;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
+@SuppressWarnings("squid:S1872")
 public class Main {
 
         public static void main(String[]args) throws InvocationTargetException, IllegalAccessException {

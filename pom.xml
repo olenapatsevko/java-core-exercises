@@ -18,15 +18,12 @@
         <module>linked-queue</module>
         <module>stack</module>
         <module>linked-list</module>
-        <module>binary-search-tree</module>
         <module>file-stats</module>
         <module>file-reader</module>
-        <module>math-functions</module>
         <module>account-analytics</module>
         <module>account-data</module>
         <module>sum-of-squares</module>
         <module>crazy-lambdas</module>
-        <module>exam-questions</module>
         <module>reflection-example</module>
         <module>utilits</module>
         <module>utilits</module>
