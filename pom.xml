@@ -27,6 +27,7 @@
         <module>reflection-example</module>
         <module>utilits</module>
         <module>utilits</module>
+        <module>templates</module>
 
     </modules>
 
