@@ -2,10 +2,15 @@ import aromakava.beverages.Tea;
 import aromakava.condiments.*;
 import coffeefm.Cafeteria;
 import coffeefm.GoldCafeteria;
-import observer.CurrentConditionsDisplay;
 import aromakava.beverages.Drink;
+import observer.OrderListener;
+import observer.ReadyListener;
+
+import java.util.logging.Logger;
+
 
 public class Main {
+static Logger log =Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
         CondimentDecorator teaWithMilk = new Milk(
@@ -13,20 +18,25 @@ public class Main {
                         new Fruits( new Sugar(
                                 new Tea()
                         ))));
-        System.out.println(teaWithMilk.getDescription());
+        log.info(teaWithMilk.getDescription());
+
+
 
 
         Cafeteria cafeteria = new GoldCafeteria();
-        CurrentConditionsDisplay display = new CurrentConditionsDisplay(cafeteria);
+      cafeteria.events.subscribe("order", new OrderListener(12));
+      cafeteria.events.subscribe("ready", new ReadyListener(2));
 
         Drink drink = cafeteria.orderDrink("Espresso");
-        System.out.println("Client ordered a " + drink.getDescription() + "\n");
+       log.info("Client ordered a " + drink.getDescription() + "\n");
 
         drink = cafeteria.orderDrink("Double Tea");
-        System.out.println("Client ordered a " + drink.getDescription() + "\n");
+       log.info("Client ordered a " + drink.getDescription() + "\n");
 
         drink = cafeteria.orderDrink("Latte");
-        System.out.println("Client ordered a " + drink.getDescription() + "\n");
+        log.info("Client ordered a " + drink.getDescription() + "\n");
+
+
     }
 
 }

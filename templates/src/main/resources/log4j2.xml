@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+    <Properties>
+        <Property name="basePath">logs/</Property>
+    </Properties>
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="| %marker | %p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n"/>
+        </Console>
+
+        <!-- File Appender -->
+        <RollingFile
+                name="rollingFile"
+                fileName="${basePath}/logfile.log"
+                filePattern="${basePath}/logfile.%i.%d{dd-MMM-hh}.log.gz"
+                ignoreExceptions="false">
+            <PatternLayout pattern="| %marker | %p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="5KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+
+        <!--        <File name="FILE" fileName="${basePath}/logfile.log" append="true">-->
+        <!--            <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" />-->
+        <!--        </File>-->
+    </Appenders>
+    <Loggers>
+        <Logger name="com.jcg" level="debug"/>
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="rollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
