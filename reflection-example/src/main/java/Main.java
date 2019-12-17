@@ -1,32 +1,28 @@
-import computer.Computer;
 import computer.Laptop;
 import computer.Machine;
+import lombok.extern.log4j.Log4j2;
 import proxy.CustomInvocationHandler;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.text.Annotation;
+import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import static java.lang.System.out;
-import static java.lang.System.setOut;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Proxy;
-
+@Log4j2
 @SuppressWarnings("squid:S1872")
 public class Main {
 
         public static void main(String[]args) throws InvocationTargetException, IllegalAccessException {
             Laptop laptop = new Laptop();
-           out.println( laptop.toString());
+           log.info( laptop.toString());
 
             Machine laptop1 = (Machine) Proxy.newProxyInstance(Laptop.class.getClassLoader(),Laptop.class.getInterfaces(), new CustomInvocationHandler(laptop) );
-           out.println( laptop1.getScreen());
+           log.info( laptop1.getScreen());
 
-       //  laptop1.setScreen(12.5);
+
         out.println(12);
 
-           // laptop1.setScreen(12);
 
             try {
                 Class<?> laptop1Class = Class.forName("computer.Laptop");
@@ -39,7 +35,7 @@ public class Main {
            out.println(laptop0Class.getTypeName());
 
             Class<? extends Laptop> laptopClass = laptop.getClass();
-            out.println(laptopClass.getTypeName());
+           log.info(laptopClass.getTypeName());
 
            Method method[] =  laptop0Class.getMethods();
            for (int i =0 ; i<method.length; i++){
@@ -53,13 +49,13 @@ public class Main {
                       }
                   }
               }
-               out.println("Method params:"+Arrays.toString(method[i].getParameterTypes()));
+               log.info("Method params:"+Arrays.toString(method[i].getParameterTypes()));
 
 
            }
 
-          out.println("Package of the class is :"+laptop0Class.getPackage());
-          out.println("Simple name of the class is: "+laptop0Class.getSimpleName());
+          log.info("Package of the class is :"+laptop0Class.getPackage());
+          log.info("Simple name of the class is: "+laptop0Class.getSimpleName());
 
 
 
