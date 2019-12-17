@@ -1,0 +1,9 @@
+|  | INFO | 2019-12-17 08:52:16 | [main] Main (Main.java:23) - Tea, sugar, fruits , cinnamon, Milk
+|  | INFO | 2019-12-17 08:52:16 | [main] Main (Main.java:33) - Client ordered a 
+$Espresso$
+
+|  | INFO | 2019-12-17 08:52:16 | [main] Main (Main.java:36) - Client ordered a Tea, sugar, sugar, fruits 
+
+|  | INFO | 2019-12-17 08:52:16 | [main] Main (Main.java:39) - Client ordered a 
+$Espresso$, cinnamon, sugar, Milk
+

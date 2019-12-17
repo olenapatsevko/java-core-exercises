@@ -3,14 +3,16 @@ import aromakava.condiments.*;
 import coffeefm.Cafeteria;
 import coffeefm.GoldCafeteria;
 import aromakava.beverages.Drink;
+import lombok.extern.log4j.Log4j2;
 import observer.OrderListener;
 import observer.ReadyListener;
 
 import java.util.logging.Logger;
 
-
+@Log4j2
 public class Main {
-static Logger log =Logger.getLogger(Main.class.getName());
+
+//static Logger log =Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
         CondimentDecorator teaWithMilk = new Milk(
