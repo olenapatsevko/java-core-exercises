@@ -17,7 +17,6 @@ public class Laptop extends Computer implements Machine{
 
     public Laptop(){
             super();
-        //    System.out.println("computer.Laptop Constructor");;
     }
 
     @Override
